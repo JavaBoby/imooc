@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: order
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+  zipkin:
+    base-url: http://10.10.10.140:9411/
+#配置请求信息输送到外部服务的百分比,默认是0.1f
+  sleuth:
+    sampler:
+      probability: 1
+server:
+  port: 9092
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
